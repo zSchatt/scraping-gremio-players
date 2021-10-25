@@ -4,11 +4,11 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
-url = "https://www.espn.com.br/futebol/time/elenco/_/id/6273/gremio"
-
 option = Options()
 option.headless = True
 driver = webdriver.Firefox()
+
+url = "https://www.espn.com.br/futebol/time/elenco/_/id/6273/gremio"
 
 driver.get(url)
 
