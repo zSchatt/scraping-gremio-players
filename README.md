@@ -1,4 +1,4 @@
 # scraping-gremio-players
 
-Este projeto tem a função de pegar os dados (do site da ESPN) dos jogadores da temporada 2021-22 do Grêmio como: Nome, altura, idade, peso, posição e nacionalidade.
-Após pegar estes dados, o programa cria um arquivo .json separando jogador por jogador.
+O código tem como função utilizar o BeautifulSoup e o Selenium para buscar informações, no site da ESPN Brasil, sobre os jogadores da atual temporada do Grêmio.
+Após pegar essas informações o código usa o Pandas para criar uma tabela e um dicionário com as informações e, a partir disso cria um arquivo .json com todas as informações de cada jogador.
