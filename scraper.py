@@ -14,18 +14,15 @@ driver.get(url)
 
 
 
-
-
 # INFO
 #
 #
 # Coletando as informações do site
-driver.find_element_by_xpath('//*[@id="fittPageContainer"]/div[2]/div[5]/div/div/section/div/section/div[4]/div[1]/div[2]/div/div[2]/table')
-elementG = driver.find_element_by_xpath('//*[@id="fittPageContainer"]/div[2]/div[5]/div/div/section/div/section/div[4]/div[1]/div[2]/div/div[2]/table')
-html_contentG = elementG.get_attribute('outerHTML')
+elements = driver.find_elements_by_tag_name("table")
+elementG = elements[0]
+elementL = elements[1]
 
-driver.find_element_by_xpath('//*[@id="fittPageContainer"]/div[2]/div[5]/div/div/section/div/section/div[4]/div[2]/div[2]/div/div[2]/table')
-elementL = driver.find_element_by_xpath('//*[@id="fittPageContainer"]/div[2]/div[5]/div/div/section/div/section/div[4]/div[2]/div[2]/div/div[2]/table')
+html_contentG = elementG.get_attribute('outerHTML')
 html_contentL = elementL.get_attribute('outerHTML')
 
 
@@ -37,7 +34,6 @@ html_contentL = elementL.get_attribute('outerHTML')
 # Configurando o HTML a partir do BeautifulSoup
 soupG = BeautifulSoup(html_contentG, 'html.parser')
 tableG = soupG.find(name='table')
-
 soupL = BeautifulSoup(html_contentL, 'html.parser')
 tableL = soupL.find(name='table')
 
@@ -48,14 +44,12 @@ tableL = soupL.find(name='table')
 #
 #
 # Criando tabela a partir do Pandas
-dfG_full = pd.read_html(str(tableG))[0]
-dfG = dfG_full[['Nome', 'POS', 'Idade', 'Alt', 'P', 'NAC']]
+df_fullG = pd.read_html(str(tableG))[0]
+dfG = df_fullG[['Nome', 'POS', 'Idade', 'Alt', 'P', 'NAC']]
 dfG.columns = ['Nome', 'Posição', 'Idade', 'Altura', 'Peso', 'Nacionalidade']
-
-dfL_full = pd.read_html(str(tableL))[0]
-dfL = dfL_full[['Nome', 'POS', 'Idade', 'Alt', 'P', 'NAC']]
-dfL.columns = ['Nome', 'Posicao', 'Idade', 'Altura', 'Peso', 'Nacionalidade']
-
+df_fullL = pd.read_html(str(tableL))[0]
+dfL = df_fullL[['Nome', 'POS', 'Idade', 'Alt', 'P', 'NAC']]
+dfL.columns = ['Nome', 'Posição', 'Idade', 'Altura', 'Peso', 'Nacionalidade']
 
 
 
@@ -63,12 +57,10 @@ dfL.columns = ['Nome', 'Posicao', 'Idade', 'Altura', 'Peso', 'Nacionalidade']
 #
 #
 # Criando váriaveis para dicionário
-info_jogadoresGol = {}
-info_jogadoresGol['info'] = dfG.to_dict('records')
-
-info_jogadoresLinha = {}
-info_jogadoresLinha['info'] = dfL.to_dict('records')
-
+info_goleiros = {}
+info_goleiros['info'] = dfG.to_dict('records')
+info_linha = {}
+info_linha['info'] = dfL.to_dict('records')
 info_jogadores = {}
 info_jogadores['Jogadores'] = dfG.to_dict('records') + dfL.to_dict('records')
 
