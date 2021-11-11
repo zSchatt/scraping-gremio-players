@@ -1,4 +1,5 @@
 # WebScraping Grêmio
+![120px-Gremio-Logo](https://user-images.githubusercontent.com/72706376/141303317-ca9fd191-3afd-411b-ac8e-25813c1f3841.png)
 
 ## SOBRE O PROJETO
 O projeto tem como função utilizar o BeautifulSoup e o Selenium para buscar informações, 
