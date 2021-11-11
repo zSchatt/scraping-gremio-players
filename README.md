@@ -23,6 +23,7 @@ no site da ESPN Brasil, sobre os jogadores da atual temporada do Grêmio.
 
 ## FUNCIONAMENTO DO PROJETO
 O programa busca, com  o webdriver, no site da ESPN Brasil o elenco inteiro do 
-time do Grêmio e, coleta as informações sobre os todos os jogadores. Após pegar 
-essas informações o código usa o Pandas para criar uma tabela e um dicionário com 
-as informações e, a partir disso cria um arquivo .json com todas as informações de cada jogador.
+time do Grêmio e, coleta as informações de nome, idade, altura, posição e nacionalidade 
+sobre os todos os jogadores. Após pegar essas informações o código usa o Pandas 
+para criar uma tabela e um dicionário com as informações e, a partir disso cria um arquivo 
+.json com todas as informações de cada jogador.
